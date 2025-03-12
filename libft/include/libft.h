@@ -22,9 +22,9 @@
 # include <fcntl.h>
 
 # define BUFFER_SIZE 42
-# define bool int
-# define true 1
-# define false 0
+# define bool int //*
+# define true 1 //*
+# define false 0 //*
 
 //** Structs */
 //************************************************************************
@@ -173,6 +173,8 @@ int		count_words(char const *s, char sep);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, long unsigned int n);
 char	*ft_dbltoa(double number, int precision);
+void	ft_free_str_array(char **array, int size); //*
+void	ft_free_2d_str_array(char ***array, int size); //*
 //************************************************************************
 //***********
 //*

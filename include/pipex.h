@@ -6,7 +6,7 @@
 /*   By: eraad <eraad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 14:46:35 by eraad             #+#    #+#             */
-/*   Updated: 2025/03/12 17:46:45 by eraad            ###   ########.fr       */
+/*   Updated: 2025/03/12 23:50:02 by eraad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void init_pipex_struct(t_pipex *pipex);
 bool check_args(t_pipex *pipex, int argc, char **argv);
 int handle_in_file(t_pipex *pipex, char **argv);
 int handle_out_file(t_pipex *pipex, int argc, char **argv);
+char **handle_envp(char *key, char **envp);
 
 //* cleanup
 //*****************************************************************************/
