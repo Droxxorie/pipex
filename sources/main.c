@@ -6,7 +6,7 @@
 /*   By: eraad <eraad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:54:24 by eraad             #+#    #+#             */
-/*   Updated: 2025/03/14 15:14:02 by eraad            ###   ########.fr       */
+/*   Updated: 2025/03/14 16:43:53 by eraad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	main(int argc, char **argv, char **envp)
 	if (parse_cmd_paths(&pipex) == FALSE)
 		return (cleanup(&pipex), 0);
 	if (pipex_logic(&pipex, envp) == FALSE)
-		return (cleanup(&pipex), 0);
+		return (cleanup(&pipex), 1);
 	return (cleanup(&pipex), 0);
 }

@@ -16,7 +16,6 @@ t_bool	parse_cmd_args(t_pipex *pipex, char **argv)
 {
 	int		i;
 	int		start;
-	char	**cmd_args;
 
 	pipex->cmd_args = ft_calloc(sizeof(char *), pipex->cmd_count);
 	if (!pipex->cmd_args)
@@ -25,16 +24,15 @@ t_bool	parse_cmd_args(t_pipex *pipex, char **argv)
 	start = 2 + pipex->here_doc;
 	while (i < pipex->cmd_count)
 	{
-		cmd_args = ft_split(argv[start + i], ' ');
-		if (!cmd_args)
+		pipex->cmd_args[i] = ft_split(argv[start + i], ' ');
+		if (!pipex->cmd_args[i])
 		{
 			ft_free_2d_str_array(pipex->cmd_args, pipex->cmd_count);
 			free(pipex->cmd_args);
 			pipex->cmd_args = NULL;
 			return (FALSE);
 		}
-		pipex->cmd_args[i] = cmd_args;
-		i++;
+			i++;
 	}
 	return (TRUE);
 }

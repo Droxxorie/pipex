@@ -18,8 +18,9 @@ static char	*find_cmd_path(t_pipex *pipex, char *cmd)
 	char	*cmd_path;
 	char	*temp;
 
-	if (access(cmd, X_OK) == 0)
-		return (ft_strdup(cmd));
+	if (cmd)
+		if (access(cmd, X_OK) == 0)
+			return (ft_strdup(cmd));
 	i = 0;
 	while (pipex->paths[i])
 	{
@@ -35,7 +36,9 @@ static char	*find_cmd_path(t_pipex *pipex, char *cmd)
 		free(cmd_path);
 		i++;
 	}
-	return (NULL);
+	cmd_path = malloc(1);
+	cmd_path[0] = '\0';
+	return (cmd_path);
 }
 
 t_bool	parse_cmd_paths(t_pipex *pipex)
