@@ -22,12 +22,12 @@
 # include <fcntl.h>
 
 # define BUFFER_SIZE 42
-# define bool int //*
-# define true 1 //*
-# define false 0 //*
+# define TRUE 1 //*
+# define FALSE 0 //*
 
-//** Structs */
-//************************************************************************
+typedef int		t_bool; //*
+
+//* ------------------structs------------------ */
 typedef struct s_list
 {
 	void			*content;
@@ -55,12 +55,8 @@ typedef struct s_dbltoa
 	char	*result;
 
 }	t_dbltoa;
-//************************************************************************
-//***********
-//*
-//*
-//* ft_is */
-//************************************************************************
+
+//* -------------------ft_is------------------- */
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -94,6 +90,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_realloc(void *ptr, size_t old_size, size_t new_size);
+void	*ft_calloc(size_t nmemb, size_t size);
+void	ft_bzero(void *s, long unsigned int n);
 //************************************************************************
 //***********
 //*
@@ -170,11 +168,9 @@ double	ft_atodbl(char *s);
 int		ft_atoi(const char *nptr);
 char	**ft_split(char const *s, char sep);
 int		count_words(char const *s, char sep);
-void	*ft_calloc(size_t nmemb, size_t size);
-void	ft_bzero(void *s, long unsigned int n);
 char	*ft_dbltoa(double number, int precision);
-void	ft_free_str_array(char **array, int size); //*
-void	ft_free_2d_str_array(char ***array, int size); //*
+void	ft_free_str_array(char **array, int size);
+void	ft_free_2d_str_array(char ***array, int size);
 //************************************************************************
 //***********
 //*

@@ -10,21 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 void	ft_free_2d_str_array(char ***array, int size)
 {
-	int i;
+	int	i;
 
 	if (!array || !*array)
-		return;
+		return ;
 	i = 0;
-	if (!size)
+	if (size == -1)
 		while ((*array)[i])
-			ft_free_str_array((*array)[i++], 0);
+			ft_free_str_array(array[i++], -1);
 	else
 		while (i < size)
-			ft_free_str_array((*array)[i++], 0);
-	free(*array);
-	*array = NULL;
+			ft_free_str_array(array[i++], -1);
+	free(array);
 }

@@ -10,18 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 //* frees a 1D array of size n
 //* if size is 0, it will free until it finds a NULL pointer
 void	ft_free_str_array(char **array, int size)
 {
-	int i;
+	int	i;
 
 	if (!array)
 		return ;
 	i = 0;
-	if (!size)
+	if (size == -1)
 		while (array[i])
 			free(array[i++]);
 	else
