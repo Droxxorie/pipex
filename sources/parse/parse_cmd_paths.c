@@ -49,12 +49,6 @@ t_bool	parse_cmd_paths(t_pipex *pipex)
 	while (i < pipex->cmd_count)
 	{
 		pipex->cmd_paths[i] = find_cmd_path(pipex, pipex->cmd_args[i][0]);
-		if (!pipex->cmd_paths[i])
-		{
-			ft_free_str_array(pipex->cmd_paths, pipex->cmd_count + 1);
-			pipex->cmd_paths = NULL;
-			return (FALSE);
-		}
 		i++;
 	}
 	return (TRUE);

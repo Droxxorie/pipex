@@ -6,7 +6,7 @@
 /*   By: eraad <eraad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:30:12 by eraad             #+#    #+#             */
-/*   Updated: 2025/03/14 14:41:01 by eraad            ###   ########.fr       */
+/*   Updated: 2025/03/14 15:00:29 by eraad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ int	handle_in_file(t_pipex *pipex, char **argv)
 	{
 		if (access(argv[1], F_OK) == -1 || access(argv[1], R_OK) == -1)
 		{
-			ft_putstr_fd("Error: input file does not exist or cannot be read\n",
-				STDERR_FILENO);
+			print_error("no such file or directory", argv[1]);
 			pipex->in_file_fd = open(INVALID_IN_FILE_PATH,
 					O_RDWR | O_CREAT | O_TRUNC, 0644);
 			pipex->invalid_in_file = TRUE;

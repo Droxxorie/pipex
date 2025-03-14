@@ -84,9 +84,7 @@ t_bool	pipex_logic(t_pipex *pipex, char **envp)
 	{
 		if (pipex_core(pipex, index, envp) == FALSE)
 		{
-			ft_putstr_fd("pipex: ", STDERR_FILENO);
-			ft_putstr_fd(pipex->cmd_args[index][0], STDERR_FILENO);
-			ft_putstr_fd(": command not found\n", STDERR_FILENO);
+			print_error("command not found", pipex->cmd_args[index][0]);
 			return (FALSE);
 		}
 		index++;
