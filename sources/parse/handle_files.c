@@ -6,7 +6,7 @@
 /*   By: eraad <eraad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:30:12 by eraad             #+#    #+#             */
-/*   Updated: 2025/03/14 11:56:17 by eraad            ###   ########.fr       */
+/*   Updated: 2025/03/14 14:41:01 by eraad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	handle_in_file(t_pipex *pipex, char **argv)
 				STDERR_FILENO);
 			pipex->in_file_fd = open(INVALID_IN_FILE_PATH,
 					O_RDWR | O_CREAT | O_TRUNC, 0644);
-			pipex->invalid_in_file = true;
+			pipex->invalid_in_file = TRUE;
 		}
 		else
 			pipex->in_file_fd = open(argv[1], O_RDONLY);

@@ -20,7 +20,7 @@ t_bool	parse_cmd_args(t_pipex *pipex, char **argv)
 
 	pipex->cmd_args = ft_calloc(sizeof(char *), pipex->cmd_count);
 	if (!pipex->cmd_args)
-		return (false);
+		return (FALSE);
 	i = 0;
 	start = 2 + pipex->here_doc;
 	while (i < pipex->cmd_count)
@@ -31,10 +31,10 @@ t_bool	parse_cmd_args(t_pipex *pipex, char **argv)
 			ft_free_2d_str_array(pipex->cmd_args, pipex->cmd_count);
 			free(pipex->cmd_args);
 			pipex->cmd_args = NULL;
-			return (false);
+			return (FALSE);
 		}
 		pipex->cmd_args[i] = cmd_args;
 		i++;
 	}
-	return (true);
+	return (TRUE);
 }

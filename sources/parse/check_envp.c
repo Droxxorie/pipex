@@ -26,11 +26,11 @@ t_bool	check_envp(t_pipex *pipex, char *key, char **envp)
 			if (!pipex->paths)
 			{
 				pipex->paths = NULL;
-				return (false);
+				return (FALSE);
 			}
-			return (true);
+			return (TRUE);
 		}
 		i++;
 	}
-	return (false);
+	return (FALSE);
 }

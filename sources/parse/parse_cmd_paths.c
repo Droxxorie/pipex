@@ -44,7 +44,7 @@ t_bool	parse_cmd_paths(t_pipex *pipex)
 
 	pipex->cmd_paths = ft_calloc(sizeof(char *), pipex->cmd_count + 1);
 	if (!pipex->cmd_paths)
-		return (false);
+		return (FALSE);
 	i = 0;
 	while (i < pipex->cmd_count)
 	{
@@ -53,9 +53,9 @@ t_bool	parse_cmd_paths(t_pipex *pipex)
 		{
 			ft_free_str_array(pipex->cmd_paths, pipex->cmd_count + 1);
 			pipex->cmd_paths = NULL;
-			return (false);
+			return (FALSE);
 		}
 		i++;
 	}
-	return (true);
+	return (TRUE);
 }
