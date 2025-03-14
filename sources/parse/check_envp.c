@@ -12,14 +12,15 @@
 
 #include "pipex.h"
 
-bool	check_envp(t_pipex *pipex, char *key, char **envp)
+t_bool	check_envp(t_pipex *pipex, char *key, char **envp)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (envp[i])
 	{
-		if (!ft_strncmp(envp[i], key, ft_strlen(key)) && envp[i][ft_strlen(key)] == '=')
+		if (!ft_strncmp(envp[i], key, ft_strlen(key))
+			&& envp[i][ft_strlen(key)] == '=')
 		{
 			pipex->paths = ft_split(envp[i] + ft_strlen(key) + 1, ':');
 			if (!pipex->paths)

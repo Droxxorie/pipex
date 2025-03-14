@@ -12,11 +12,11 @@
 
 #include "pipex.h"
 
-static char *find_cmd_path(t_pipex *pipex, char *cmd)
+static char	*find_cmd_path(t_pipex *pipex, char *cmd)
 {
-	int i;
-	char *cmd_path;
-	char *temp;
+	int		i;
+	char	*cmd_path;
+	char	*temp;
 
 	if (access(cmd, X_OK) == 0)
 		return (ft_strdup(cmd));
@@ -38,9 +38,9 @@ static char *find_cmd_path(t_pipex *pipex, char *cmd)
 	return (NULL);
 }
 
-bool parse_cmd_paths(t_pipex *pipex)
+t_bool	parse_cmd_paths(t_pipex *pipex)
 {
-	int i;
+	int	i;
 
 	pipex->cmd_paths = ft_calloc(sizeof(char *), pipex->cmd_count + 1);
 	if (!pipex->cmd_paths)

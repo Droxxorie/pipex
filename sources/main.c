@@ -6,19 +6,16 @@
 /*   By: eraad <eraad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:54:24 by eraad             #+#    #+#             */
-/*   Updated: 2025/03/14 00:02:43 by eraad            ###   ########.fr       */
+/*   Updated: 2025/03/14 11:47:49 by eraad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int main(int argc, char **argv, char **envp)
+int	main(int argc, char **argv, char **envp)
 {
-	t_pipex pipex;
+	t_pipex	pipex;
 
-	// pipex = malloc(sizeof(t_pipex));
-	// if (!pipex)
-	// 	return (print_error("malloc failed"));
 	init_pipex_struct(&pipex);
 	if (check_args(&pipex, argc, argv) == false)
 		return (cleanup(&pipex), print_error("invalid arguments"), 0);

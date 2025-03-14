@@ -6,16 +6,16 @@
 /*   By: eraad <eraad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:30:12 by eraad             #+#    #+#             */
-/*   Updated: 2025/03/13 23:49:41 by eraad            ###   ########.fr       */
+/*   Updated: 2025/03/14 11:56:17 by eraad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static void handle_here_doc(char *limiter)
+static void	handle_here_doc(char *limiter)
 {
-	int	fd;
-	char *buffer;
+	int		fd;
+	char	*buffer;
 
 	fd = open(HERE_DOC_PATH, O_RDWR | O_CREAT | O_TRUNC, 0644);
 	ft_putstr_fd("here_doc> ", STDOUT_FILENO);
@@ -37,7 +37,7 @@ static void handle_here_doc(char *limiter)
 }
 
 //* Check if in_file exist, is redable
-int handle_in_file(t_pipex *pipex, char **argv)
+int	handle_in_file(t_pipex *pipex, char **argv)
 {
 	if (pipex->here_doc)
 	{
@@ -48,8 +48,10 @@ int handle_in_file(t_pipex *pipex, char **argv)
 	{
 		if (access(argv[1], F_OK) == -1 || access(argv[1], R_OK) == -1)
 		{
-			ft_putstr_fd("Error: input file does not exist or cannot be read\n", STDERR_FILENO);
-			pipex->in_file_fd = open(INVALID_IN_FILE_PATH, O_RDWR | O_CREAT | O_TRUNC, 0644);
+			ft_putstr_fd("Error: input file does not exist or cannot be read\n",
+				STDERR_FILENO);
+			pipex->in_file_fd = open(INVALID_IN_FILE_PATH,
+					O_RDWR | O_CREAT | O_TRUNC, 0644);
 			pipex->invalid_in_file = true;
 		}
 		else
@@ -58,11 +60,13 @@ int handle_in_file(t_pipex *pipex, char **argv)
 	return (pipex->in_file_fd);
 }
 
-int handle_out_file(t_pipex *pipex, int argc, char **argv)
+int	handle_out_file(t_pipex *pipex, int argc, char **argv)
 {
 	if (pipex->here_doc)
-		pipex->out_file_fd = open(argv[argc - 1], O_WRONLY | O_CREAT | O_APPEND, 0644);
+		pipex->out_file_fd = open(argv[argc - 1],
+				O_WRONLY | O_CREAT | O_APPEND, 0644);
 	else
-		pipex->out_file_fd = open(argv[argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+		pipex->out_file_fd = open(argv[argc - 1],
+				O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	return (pipex->out_file_fd);
 }

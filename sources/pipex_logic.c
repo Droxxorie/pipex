@@ -12,7 +12,7 @@
 
 #include "pipex.h"
 
-static bool child(t_pipex *pipex, int pipe_fd[2], int index, char **envp)
+static t_bool	child(t_pipex *pipex, int pipe_fd[2], int index, char **envp)
 {
 	if (index == 0)
 	{
@@ -20,13 +20,14 @@ static bool child(t_pipex *pipex, int pipe_fd[2], int index, char **envp)
 			return (false);
 	}
 	else if (dup2(pipe_fd[0], STDIN_FILENO) == -1)
-			return (false);
+		return (false);
 	if (index == pipex->cmd_count - 1)
 	{
 		if (dup2(pipex->out_file_fd, STDOUT_FILENO) == -1)
 			return (false);
 	}
-	else if (dup2(pipe_fd[1], STDOUT_FILENO) == -1)
+	else
+		if (dup2(pipe_fd[1], STDOUT_FILENO) == -1)
 			return (false);
 	close(pipe_fd[0]);
 	close(pipe_fd[1]);
@@ -40,7 +41,7 @@ static bool child(t_pipex *pipex, int pipe_fd[2], int index, char **envp)
 	return (true);
 }
 
-static bool parent(int *pid, int pipe_fd[2])
+static t_bool	parent(int *pid, int pipe_fd[2])
 {
 	close(pipe_fd[0]);
 	close(pipe_fd[1]);
@@ -49,10 +50,10 @@ static bool parent(int *pid, int pipe_fd[2])
 	return (true);
 }
 
-static bool pipex_core(t_pipex *pipex, int index, char **envp)
+static t_bool	pipex_core(t_pipex *pipex, int index, char **envp)
 {
-	int pid;
-	int pipe_fd[2];
+	int	pid;
+	int	pipe_fd[2];
 
 	if (pipe(pipe_fd) == -1)
 		return (false);
@@ -74,9 +75,9 @@ static bool pipex_core(t_pipex *pipex, int index, char **envp)
 	return (true);
 }
 
-bool pipex_logic(t_pipex *pipex, char **envp)
+t_bool	pipex_logic(t_pipex *pipex, char **envp)
 {
-	int index;
+	int	index;
 
 	index = 0;
 	while (index < pipex->cmd_count)

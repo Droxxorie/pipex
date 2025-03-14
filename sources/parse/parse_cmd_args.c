@@ -12,11 +12,11 @@
 
 #include "pipex.h"
 
-bool parse_cmd_args(t_pipex *pipex, char **argv)
+t_bool	parse_cmd_args(t_pipex *pipex, char **argv)
 {
-	int i;
-	int start;
-	char **cmd_args;
+	int		i;
+	int		start;
+	char	**cmd_args;
 
 	pipex->cmd_args = ft_calloc(sizeof(char *), pipex->cmd_count);
 	if (!pipex->cmd_args)

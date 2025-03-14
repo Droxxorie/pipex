@@ -6,7 +6,7 @@
 /*   By: eraad <eraad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 14:46:35 by eraad             #+#    #+#             */
-/*   Updated: 2025/03/13 23:19:34 by eraad            ###   ########.fr       */
+/*   Updated: 2025/03/14 11:46:42 by eraad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,33 +30,33 @@ typedef struct s_pipex
 	char	***cmd_args;
 	char	**cmd_paths;
 	int		cmd_count;
-	bool	here_doc;
-	bool	invalid_in_file;
-} t_pipex;
+	t_bool	here_doc;
+	t_bool	invalid_in_file;
+}	t_pipex;
 
 //* Error handling
 //*****************************************************************************/
-void print_error(char *str);
+void	print_error(char *str);
 
 //* Init struct
 //*****************************************************************************/
-void init_pipex_struct(t_pipex *pipex);
+void	init_pipex_struct(t_pipex *pipex);
 
 //* parse
 //*****************************************************************************/
-bool check_args(t_pipex *pipex, int argc, char **argv);
-int handle_in_file(t_pipex *pipex, char **argv);
-int handle_out_file(t_pipex *pipex, int argc, char **argv);
-bool check_envp(t_pipex *pipex, char *key, char **envp);
-bool parse_cmd_args(t_pipex *pipex, char **argv);
-bool parse_cmd_paths(t_pipex *pipex);
+t_bool	check_args(t_pipex *pipex, int argc, char **argv);
+int		handle_in_file(t_pipex *pipex, char **argv);
+int		handle_out_file(t_pipex *pipex, int argc, char **argv);
+t_bool	check_envp(t_pipex *pipex, char *key, char **envp);
+t_bool	parse_cmd_args(t_pipex *pipex, char **argv);
+t_bool	parse_cmd_paths(t_pipex *pipex);
 
 //* cleanup
 //*****************************************************************************/
-void cleanup(t_pipex *pipex);
+void	cleanup(t_pipex *pipex);
 
 //* pipex
 //*****************************************************************************/
-bool pipex_logic(t_pipex *pipex, char **envp);
+t_bool	pipex_logic(t_pipex *pipex, char **envp);
 
 #endif
