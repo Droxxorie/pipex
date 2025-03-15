@@ -6,7 +6,7 @@
 /*   By: eraad <eraad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 14:46:35 by eraad             #+#    #+#             */
-/*   Updated: 2025/03/14 15:20:54 by eraad            ###   ########.fr       */
+/*   Updated: 2025/03/15 11:42:13 by eraad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_pipex
 	int		cmd_count;
 	t_bool	here_doc;
 	t_bool	invalid_in_file;
+	int		previous_fd;
 }	t_pipex;
 
 //* Error handling

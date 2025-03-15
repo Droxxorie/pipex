@@ -6,7 +6,7 @@
 /*   By: eraad <eraad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:54:24 by eraad             #+#    #+#             */
-/*   Updated: 2025/03/14 16:43:53 by eraad            ###   ########.fr       */
+/*   Updated: 2025/03/15 11:22:00 by eraad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int	main(int argc, char **argv, char **envp)
 
 	init_pipex_struct(&pipex);
 	if (check_args(&pipex, argc, argv) == FALSE)
-		return (cleanup(&pipex), print_error("invalid arguments", "\0"), 0);
+		return (cleanup(&pipex), print_error("invalid arguments", "\0"), 1);
 	if (check_envp(&pipex, "PATH", envp) == FALSE)
-		return (cleanup(&pipex), print_error("PATH not found", "\0"), 0);
+		return (cleanup(&pipex), print_error("PATH not found", "\0"), 127);
 	if (parse_cmd_args(&pipex, argv) == FALSE)
-		return (cleanup(&pipex), print_error("wrong syntax", "\0"), 0);
+		return (cleanup(&pipex), print_error("wrong syntax", "\0"), 1);
 	if (parse_cmd_paths(&pipex) == FALSE)
-		return (cleanup(&pipex), 0);
+		return (cleanup(&pipex), 127);
 	if (pipex_logic(&pipex, envp) == FALSE)
 		return (cleanup(&pipex), 1);
 	return (cleanup(&pipex), 0);

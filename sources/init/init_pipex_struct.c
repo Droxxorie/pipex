@@ -6,7 +6,7 @@
 /*   By: eraad <eraad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:03:59 by eraad             #+#    #+#             */
-/*   Updated: 2025/03/14 14:40:31 by eraad            ###   ########.fr       */
+/*   Updated: 2025/03/15 11:42:24 by eraad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void	init_pipex_struct(t_pipex *pipex)
 	pipex->cmd_count = 0;
 	pipex->here_doc = FALSE;
 	pipex->invalid_in_file = FALSE;
+	pipex->previous_fd = -1;
 }

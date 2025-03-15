@@ -6,7 +6,7 @@
 /*   By: eraad <eraad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:04:23 by eraad             #+#    #+#             */
-/*   Updated: 2025/03/14 15:01:13 by eraad            ###   ########.fr       */
+/*   Updated: 2025/03/15 10:30:04 by eraad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_error(char *str, char *arg)
 {
-	if (!str || !arg)
+	if (!str)
 		return ;
 	ft_putstr_fd("pipex: ", STDERR_FILENO);
 	ft_putstr_fd(str, STDERR_FILENO);

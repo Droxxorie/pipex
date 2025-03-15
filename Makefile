@@ -6,7 +6,7 @@
 #    By: eraad <eraad@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/06 14:33:34 by eraad             #+#    #+#              #
-#    Updated: 2025/03/13 23:42:03 by eraad            ###   ########.fr        #
+#    Updated: 2025/03/14 20:33:25 by eraad            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 				@$(CC) $(CFLAGS) $(INCLUDE) -c -o $@ $<
 
 # bonus: $(NAME_BONUS)
+bonus: $(NAME)
 
 # $(NAME_BONUS): $(OBJS_BONUS)
 # 				@echo "_________________________________________________"
@@ -106,4 +107,4 @@ re: fclean $(NAME)
 
 # re_bonus: fclean $(NAME_BONUS)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
