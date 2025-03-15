@@ -6,11 +6,11 @@
 #    By: eraad <eraad@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/06 14:33:34 by eraad             #+#    #+#              #
-#    Updated: 2025/03/14 20:33:25 by eraad            ###   ########.fr        #
+#    Updated: 2025/03/15 12:14:26 by eraad            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#* ------------------Variables------------------- *
+#* ------------------ Variables ---------------------- *
 NAME		= pipex
 # NAME_BONUS	=
 CC			= cc
@@ -19,7 +19,7 @@ INCLUDE		= -I./include
 RM = rm -rf
 # INCLUDE_BONUS	=
 
-#* ------------------Colors------------------- *
+#* ------------------ Colors-------------------------- *
 DEF = \033[0m
 Y = \033[0;93m
 G = \033[0;92m
@@ -28,7 +28,7 @@ ORANGE = \033[38;5;208m
 LIGHT_GREEN = \033[38;5;120m
 NEON_GREEN = \033[38;5;82m
 
-#* ------------------Sources------------------- *
+#* ------------------ Sources------------------------- *
 SRCS_DIR		=	sources/
 SRC_FILES		=	cleanup/cleanup.c \
 					error/print_error.c \
@@ -44,13 +44,13 @@ SRCS = $(addprefix $(SRCS_DIR), $(SRC_FILES))
 
 # SRCS_BONUS = $(addprefix $(SRCS_DIR_BONUS), $(SRC_FILES_BONUS))
 
-#* ------------------Objects------------------- *
+#* ------------------ Objects ------------------------ *
 OBJS_DIR		=	objects/
 OBJS			=	$(patsubst $(SRCS_DIR)%.c, $(OBJS_DIR)%.o, $(SRCS))
 # OBJS_DIR_BONUS	=	bonus/objects_bonus/
 # OBJS_BONUS		=	$(patsubst $(SRCS_DIR_BONUS)%.c, $(OBJS_DIR_BONUS)%.o, $(SRCS_BONUS))
 
-#* ------------------Rules------------------- *
+#* ------------------ Rules -------------------------- *
 all: $(NAME)
 
 $(NAME): $(OBJS)
