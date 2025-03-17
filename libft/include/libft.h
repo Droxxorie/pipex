@@ -22,9 +22,10 @@
 # include <string.h>
 # include <fcntl.h>
 # include <math.h>
+# include <errno.h>
 
 //* ----------------- Macros ------------------------- *
-# define BUFFER_SIZE 42
+# define BUFFER_SIZE 10000
 # define TRUE 1
 # define FALSE 0
 

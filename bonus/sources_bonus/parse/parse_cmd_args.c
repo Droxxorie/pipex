@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 t_bool	parse_cmd_args(t_pipex *pipex, char **argv)
 {
@@ -21,7 +21,7 @@ t_bool	parse_cmd_args(t_pipex *pipex, char **argv)
 	if (!pipex->cmd_args)
 		return (FALSE);
 	i = 0;
-	start = 2;
+	start = 2 + pipex->here_doc;
 	while (i < pipex->cmd_count)
 	{
 		pipex->cmd_args[i] = ft_split(argv[start + i], ' ');

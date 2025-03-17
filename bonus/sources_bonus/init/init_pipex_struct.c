@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   init_pipex_struct.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eraad <eraad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 16:05:15 by eraad             #+#    #+#             */
-/*   Updated: 2025/03/17 14:01:09 by eraad            ###   ########.fr       */
+/*   Created: 2025/03/12 16:03:59 by eraad             #+#    #+#             */
+/*   Updated: 2025/03/17 13:52:32 by eraad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
-t_bool	check_args(t_pipex *pipex, int argc, char **argv)
+void	init_pipex_struct(t_pipex *pipex)
 {
-	if (argc != 5)
-		return (FALSE);
-	if (handle_in_file(pipex, argv) == -1)
-		return (FALSE);
-	if (handle_out_file(pipex, argc, argv) == -1)
-		return (FALSE);
-	pipex->cmd_count = argc - 3;
-	return (TRUE);
+	pipex->in_file_fd = -1;
+	pipex->out_file_fd = -1;
+	pipex->paths = NULL;
+	pipex->cmd_args = NULL;
+	pipex->cmd_paths = NULL;
+	pipex->cmd_count = 0;
+	pipex->here_doc = FALSE;
+	pipex->invalid_in_file = FALSE;
+	pipex->previous_fd = -1;
 }

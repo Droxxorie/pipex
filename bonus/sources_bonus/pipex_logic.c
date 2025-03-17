@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 static t_bool	child_process(t_pipex *pipex,
 	int index, int pipe_fd[2], char **envp)

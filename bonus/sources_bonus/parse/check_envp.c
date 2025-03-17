@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_cmd_args.c                                   :+:      :+:    :+:   */
+/*   check_envp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eraad <eraad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 15:29:16 by eraad             #+#    #+#             */
-/*   Updated: 2025/03/13 15:29:16 by eraad            ###   ########.fr       */
+/*   Created: 2025/03/13 15:20:31 by eraad             #+#    #+#             */
+/*   Updated: 2025/03/13 15:20:31 by eraad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
-t_bool	parse_cmd_args(t_pipex *pipex, char **argv)
+t_bool	check_envp(t_pipex *pipex, char *key, char **envp)
 {
-	int		i;
-	int		start;
+	int	i;
 
-	pipex->cmd_args = ft_calloc(sizeof(char *), pipex->cmd_count);
-	if (!pipex->cmd_args)
-		return (FALSE);
 	i = 0;
-	start = 2;
-	while (i < pipex->cmd_count)
+	while (envp[i])
 	{
-		pipex->cmd_args[i] = ft_split(argv[start + i], ' ');
+		if (!ft_strncmp(envp[i], key, ft_strlen(key))
+			&& envp[i][ft_strlen(key)] == '=')
+		{
+			pipex->paths = ft_split(envp[i] + ft_strlen(key) + 1, ':');
+			if (!pipex->paths)
+			{
+				pipex->paths = NULL;
+				return (FALSE);
+			}
+			return (TRUE);
+		}
 		i++;
 	}
-	return (TRUE);
+	return (FALSE);
 }

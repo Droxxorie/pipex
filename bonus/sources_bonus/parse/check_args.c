@@ -6,20 +6,23 @@
 /*   By: eraad <eraad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:05:15 by eraad             #+#    #+#             */
-/*   Updated: 2025/03/17 14:01:09 by eraad            ###   ########.fr       */
+/*   Updated: 2025/03/17 13:52:35 by eraad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 t_bool	check_args(t_pipex *pipex, int argc, char **argv)
 {
-	if (argc != 5)
+	if (argv[1] && !ft_strncmp(argv[1], "here_doc", 8)
+		&& ft_strlen(argv[1]) == 8)
+		pipex->here_doc = TRUE;
+	if (argc + pipex->here_doc < 5)
 		return (FALSE);
 	if (handle_in_file(pipex, argv) == -1)
 		return (FALSE);
 	if (handle_out_file(pipex, argc, argv) == -1)
 		return (FALSE);
-	pipex->cmd_count = argc - 3;
+	pipex->cmd_count = argc - pipex->here_doc - 3;
 	return (TRUE);
 }

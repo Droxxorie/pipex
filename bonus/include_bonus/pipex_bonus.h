@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eraad <eraad@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 14:46:35 by eraad             #+#    #+#             */
-/*   Updated: 2025/03/17 13:59:17 by eraad            ###   ########.fr       */
+/*   Created: 2025/03/17 13:53:01 by eraad             #+#    #+#             */
+/*   Updated: 2025/03/17 13:53:42 by eraad            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 
 //* ----------------- Includes ---------------------- *
 # include <sys/types.h>
 # include <sys/wait.h>
-# include "../libft/include/libft.h"
+# include "../../libft/include/libft.h"
 
 //* ----------------- Macros ------------------------- *
 # define HERE_DOC_PATH ".tmp_here_doc"
@@ -31,6 +31,7 @@ typedef struct s_pipex
 	char	***cmd_args;
 	char	**cmd_paths;
 	int		cmd_count;
+	t_bool	here_doc;
 	t_bool	invalid_in_file;
 	int		previous_fd;
 }	t_pipex;
