@@ -6,27 +6,27 @@
 #    By: eraad <eraad@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/06 14:33:34 by eraad             #+#    #+#              #
-#    Updated: 2025/03/17 17:07:56 by eraad            ###   ########.fr        #
+#    Updated: 2025/03/18 13:10:51 by eraad            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #* ------------------ Variables ---------------------- *
-NAME		= pipex
-NAME_BONUS	= pipex_bonus
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -ggdb3
-INCLUDE		= -I./include
-RM = rm -rf
-INCLUDE_BONUS	= -I./bonus/include_bonus
+NAME			=	pipex
+NAME_BONUS		=	pipex_bonus
+CC				=	cc
+CFLAGS			=	-Wall -Wextra -Werror -ggdb3
+INCLUDE			=	-I./include
+RM 				=	rm -rf
+INCLUDE_BONUS	=	-I./bonus/include_bonus
 
 #* ------------------ Colors-------------------------- *
-DEF = \033[0m
-Y = \033[0;93m
-G = \033[0;92m
-R = \033[0;91m
-ORANGE = \033[38;5;208m
-LIGHT_GREEN = \033[38;5;120m
-NEON_GREEN = \033[38;5;82m
+DEF				=	\033[0m
+Y				=	\033[0;93m
+G				=	\033[0;92m
+R				=	\033[0;91m
+ORANGE			=	\033[38;5;208m
+LIGHT_GREEN		=	\033[38;5;120m
+NEON_GREEN		=	\033[38;5;82m
 
 #* ------------------ Sources------------------------- *
 SRCS_DIR		=	sources/
@@ -37,7 +37,7 @@ SRC_FILES		=	cleanup/cleanup.c \
 					pipex_logic.c \
 					main.c \
 
-SRCS = $(addprefix $(SRCS_DIR), $(SRC_FILES))
+SRCS			=	$(addprefix $(SRCS_DIR), $(SRC_FILES))
 
 SRCS_DIR_BONUS	=	bonus/sources_bonus/
 SRC_FILES_BONUS	=	cleanup/cleanup.c \
@@ -60,7 +60,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 				@echo "_________________________________________________"
-					@echo "$(G)\n--- Creating libft...\n$(DEF)"
+				@echo "$(G)\n--- Creating libft...\n$(DEF)"
 				@$(MAKE) -C libft --no-print-directory
 				@echo "_________________________________________________"
 				@echo "$(G)\n--- Creating $(NAME)...\n $(DEF)"
